@@ -15,6 +15,29 @@ import java.util.Optional;
 public class CommentController {
     private final CommentService commentService;
 
+    @PutMapping("/api/auth/comment")
+    public Comment createComment(@RequestBody CommentRequestDto requestDto) {
+        return commentService.createComment(requestDto);
+    }
+
+    @GetMapping("/api/comment/{id}")
+    public List<Comment> getAllComment() {
+        return commentService.getAllComment();
+    }
+
+    @PutMapping("/api/auth/comment/{id}")
+    public Long updateComment(@RequestBody CommentRequestDto requestDto, @PathVariable Long id){
+        commentService.update(requestDto,id);
+        return id;
+    }
+
+    @DeleteMapping("/api/auth/comment/{id}")
+    public Long deleteComment(@PathVariable Long id){
+        commentService.delete(id);
+        return id;
+    }
+
+
     /*//모든 글 읽어 오기
     @GetMapping("/dev/comment")
     public List<Comment> getAllpost(){return commentService.getAllpost();}

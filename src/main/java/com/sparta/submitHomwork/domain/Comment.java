@@ -16,23 +16,23 @@ public class Comment extends Timestamped{
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @Column(nullable = false)
-    private String username;
+    private String postId;
 
     @Column(nullable = true)
-    private String comments;
+    private String content;
 
-    public Comment(String username, String contents) {
-        this.username = username;
-        this.comments = contents;
+    public Comment(String postId, String content) {
+        this.postId = postId;
+        this.content = content;
     }
     public Comment(CommentRequestDto requestDto) {
-        this.username = requestDto.getUsername();
-        this.comments = requestDto.getComments();
+        this.postId = requestDto.getPostId();
+        this.content = requestDto.getContent();
     }
 
     public void update(CommentRequestDto requestDto) {
-        this.username = requestDto.getUsername();
-        this.comments = requestDto.getComments();
+        this.postId = requestDto.getPostId();
+        this.content = requestDto.getContent();
     }
 
 
