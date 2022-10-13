@@ -37,8 +37,4 @@ public class UserService {
         User user = new User(username, password, passwordConfirm);
         userRepository.save(user);
     }
-
-    public void getAllPosts() {
-
-    }
 }

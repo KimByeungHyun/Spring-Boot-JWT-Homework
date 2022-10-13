@@ -28,10 +28,15 @@ public class User extends Timestamped {
     @Column(nullable = false)
     private String passwordConfirm;
 
+    @Column(nullable=false)
+    private UserRoleEnum role;
+
     public User(String username, String password, String passwordConfirm) {
         this.username = username;
         this.password = password;
         this.passwordConfirm = passwordConfirm;
     }
+
+
 
 }
